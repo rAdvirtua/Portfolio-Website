@@ -53,7 +53,7 @@ window.onscroll = () => {
 //Submissions
 
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('contact');
+    const form = document.getElementById('contactForm');
     if (form) {
         form.addEventListener('submit', async (event) => {
             event.preventDefault();
