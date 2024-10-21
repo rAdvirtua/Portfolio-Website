@@ -46,7 +46,7 @@ window.onscroll = () => {
     footer.classList.toggle('show-animate', this.innerHeight + this.scrollY >= document.scrollingElement.scrollHeight - 50);
 //Submissons
 
-    const form = document.getElementById('contact');
+    const form = document.getElementById('contact-form');
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
 
