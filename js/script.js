@@ -54,7 +54,7 @@ window.onscroll = () => {
         const data = Object.fromEntries(formData.entries());
 
         try {
-            const response = await fetch('https://script.google.com/macros/s/AKfycbzQSxdisnD04ukZ3D8it_yMgdgjfeJAiE9_uvWQJaOaydamtUA-5KTsIiApxuFL2yez/exec', {
+            const response = await fetch('https://script.google.com/macros/s/AKfycbzc9BIAFTiVNO9WBIGnaIdiFz9tvTKfCepX194J-1urXhb5IvEvE3Gb-yBb6mPhXEcH/exec', {
                 method: 'POST',
                 body: JSON.stringify(data),
                 headers: {
