@@ -53,7 +53,7 @@ window.onscroll = () => {
 //Submissions
 
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('contactForm');
+    const form = document.getElementById('contactForm'); // Ensure your form has this ID
     if (form) {
         form.addEventListener('submit', async (event) => {
             event.preventDefault();
@@ -62,16 +62,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = Object.fromEntries(formData.entries());
 
             try {
-                const response = await fetch('https://script.google.com/macros/s/AKfycbzOKB_UTkOh0xVD3vTCKLwB1SjlhfyY7cCDd95_Y00zQ8cmVT1uXd1rTUlEacxvxCM/exec', {
+                const response = await fetch('https://script.google.com/macros/s/AKfycbzEetcWZS1Za04SfY7zRTRAzIrQSYsa40SaglKAPMrMr_knFjVMe6worDQ4D_AVZ442/exec', {
                     method: 'POST',
                     body: JSON.stringify(data),
                     headers: {
                         'Content-Type': 'application/json'
-                    }
+                    },
+                    mode: 'no-cors' // Set the mode to no-cors
                 });
 
-                const result = await response.json();
-                alert(result.result === 'success' ? 'Form submitted successfully!' : 'Submission failed.');
+                // Note: You won't be able to read the response body in no-cors mode
+                alert('Form submitted successfully!'); // Simple success message
             } catch (error) {
                 alert('Error submitting form: ' + error);
             }
