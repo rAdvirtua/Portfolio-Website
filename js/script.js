@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = Object.fromEntries(formData.entries());
 
             try {
-                const response = await fetch('https://script.google.com/macros/s/AKfycbzc9BIAFTiVNO9WBIGnaIdiFz9tvTKfCepX194J-1urXhb5IvEvE3Gb-yBb6mPhXEcH/exec', {
+                const response = await fetch('https://script.google.com/macros/s/AKfycbztp7koOjomNs1_3i9OJ_Jt_XApc8okR3TEMxXVnk23HGA8NrvfNes73VnYNrXb8d2J/exec', {
                     method: 'POST',
                     body: JSON.stringify(data),
                     headers: {
