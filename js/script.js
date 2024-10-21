@@ -44,29 +44,39 @@ window.onscroll = () => {
     let footer = document.querySelector('footer');
     
     footer.classList.toggle('show-animate', this.innerHeight + this.scrollY >= document.scrollingElement.scrollHeight - 50);
-//Submissons
 
-    const form = document.getElementById('contact');
-    form.addEventListener('submit', async (event) => {
-        event.preventDefault();
 
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
-
-        try {
-            const response = await fetch('https://script.google.com/macros/s/AKfycbzc9BIAFTiVNO9WBIGnaIdiFz9tvTKfCepX194J-1urXhb5IvEvE3Gb-yBb6mPhXEcH/exec', {
-                method: 'POST',
-                body: JSON.stringify(data),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
-
-            const result = await response.json();
-            alert(result.result === 'success' ? 'Form submitted successfully!' : 'Submission failed.');
-        } catch (error) {
-            alert('Error submitting form: ' + error);
-        }
-    });
+ 
 
 }
+
+//Submissions
+
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contact');
+    if (form) {
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch('https://script.google.com/macros/s/AKfycbzc9BIAFTiVNO9WBIGnaIdiFz9tvTKfCepX194J-1urXhb5IvEvE3Gb-yBb6mPhXEcH/exec', {
+                    method: 'POST',
+                    body: JSON.stringify(data),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                const result = await response.json();
+                alert(result.result === 'success' ? 'Form submitted successfully!' : 'Submission failed.');
+            } catch (error) {
+                alert('Error submitting form: ' + error);
+            }
+        });
+    } else {
+        console.error('Form with id "contact" not found.');
+    }
+});
