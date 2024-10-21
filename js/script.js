@@ -44,6 +44,29 @@ window.onscroll = () => {
     let footer = document.querySelector('footer');
     
     footer.classList.toggle('show-animate', this.innerHeight + this.scrollY >= document.scrollingElement.scrollHeight - 50);
+//Submissons
 
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        try {
+            const response = await fetch('https://script.google.com/macros/s/AKfycbzQSxdisnD04ukZ3D8it_yMgdgjfeJAiE9_uvWQJaOaydamtUA-5KTsIiApxuFL2yez/exec', {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            const result = await response.json();
+            alert(result.result === 'success' ? 'Form submitted successfully!' : 'Submission failed.');
+        } catch (error) {
+            alert('Error submitting form: ' + error);
+        }
+    });
 
 }
