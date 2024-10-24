@@ -83,7 +83,7 @@ function sendEmail()
             Swal.fire({
                 title: "Whoops!",
                 text: "Unfortunately there are some network issues on our side please try again later",
-                icon: "success"
+                icon: "error"
               });
         }
       }
