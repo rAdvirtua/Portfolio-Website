@@ -46,37 +46,44 @@ window.onscroll = () => {
     footer.classList.toggle('show-animate', this.innerHeight + this.scrollY >= document.scrollingElement.scrollHeight - 50);
 
 
- 
-
 }
 
-//Submissions
+const form = document.querySelector('form');
+const fullName = document.getElementById("name");
+const email = document.getElementById("email");
+const phone = document.getElementById("phone");
+const subject = document.getElementById("subject");
+const mess = document.getElementById("message");
+function sendEmail()
+{
+    const bodyMessage = `Full Name : ${fullName.value}<br> Email : ${email.value}<br> Phone Number: ${phone.value} <br> Message : ${mess.value}`;
+    
 
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('contactForm');
-    if (form) {
-        form.addEventListener('submit', async (event) => {
-            event.preventDefault();
 
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData.entries());
+    Email.send({
+        Host : "smtp.elasticemail.com",
+        Username : "anurag2006.paul@gmail.com",
+        Password : "2C01C2B6BACFEB70CF03C9BF67B2FE4B2F92",
+        To : 'anurag2006.paul@gmail.com',
+        From : "anurag2006.paul@gmail.com",
+        Subject : subject.value,
+        Body : bodyMessage
+    }).then(
+      message => {
+        if(message == "OK")
+        {
+            Swal.fire({
+                title: "Successfully submitted!",
+                text: "Your message will be reviewed shortly!",
+                icon: "success"
+              });
+        }
+      }
+    );
+}
 
-            try {
-                const response = await fetch('https://script.google.com/macros/s/AKfycbzEetcWZS1Za04SfY7zRTRAzIrQSYsa40SaglKAPMrMr_knFjVMe6worDQ4D_AVZ442/exec', {
-                    method: 'POST',
-                    body: JSON.stringify(data),
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                });
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-                const result = await response.json();
-                alert(result.result === 'success' ? 'Form submitted successfully!' : 'Submission failed.');
-            } catch (error) {
-                alert('Error submitting form: ' + error);
-            }
-        });
-    } else {
-        console.error('Form with id "contact" not found.');
-    }
+    sendEmail();
 });
