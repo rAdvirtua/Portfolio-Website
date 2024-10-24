@@ -150,7 +150,7 @@
                             <div class="content">
                                 <div class="year"><i class='bx bxs-calendar' ></i>N/A</div>
                                 <h3>Poster/Paper Presentation</h3>
-                                <p>Here's a Google Drive Link to all the Posters and Powerpoint Presentations I have created:  <a href="https://drive.google.com/drive/folders/1l3GnVpRxqupa8vGBzz2uACDaD9-7AW8Q?usp=sharing"> Drive Link</a> </p>
+                                <p>Here's a Google Drive Link to all the Posters and Powerpoint Presentations I have created:  <a href="https://media.discordapp.net/attachments/864045342907170846/1296954614171701298/WhatsApp_Image_2024-10-18_at_20.22.46_a7207685.jpg?ex=67142a9c&is=6712d91c&hm=d45ee49a256548ea77ebfa5e9482317548b37420948ea9a2c6deb187b42e9855&=&format=webp&width=583&height=437"> Drive Link</a> </p>
                             </div>
                         </div>
 
@@ -297,14 +297,14 @@
        <section class="contact" id="contact">
         <h2 class="heading">Contact <span>Me!</span><span class = "animate scroll" style = "--i:1;"></span></h2>
         
-        <form id="contactForm" action="#">
+        <form action="#">
             <div class="input-box">
                 <div class="input-field">
-                    <input type="text" name = "name" placeholder="Full Name" required>
+                    <input type="text" placeholder="Full Name" id = "name" autocomplete="off" required>
                     <span class="focus"></span>
                 </div>
                 <div class="input-field">
-                    <input type="text" name = "email" placeholder="Email Address" required>
+                    <input type="text" placeholder="Email Address" id = "email" autocomplete="off" required >
                     <span class="focus"></span>
                 </div>
 
@@ -313,11 +313,11 @@
 
             <div class="input-box">
                 <div class="input-field">
-                    <input type="number" name = "phone" placeholder="Mobile Number" required>
+                    <input type="number" placeholder="Mobile Number" id = "phone" autocomplete="off" required >
                     <span class="focus"></span>
                 </div>
                 <div class="input-field">
-                    <input type="text" name = "subject" placeholder="Email Subject" required>
+                    <input type="text" placeholder="Email Subject" id = "subject" required >
                     <span class="focus"></span>
                 </div>
 
@@ -325,7 +325,7 @@
             </div>
 
             <div class="textarea-field">
-                <textarea name="" id="" cols="30" rows="10" placeholder="Your Message" required></textarea>
+                <textarea name=""  cols="30" rows="10" placeholder="Your Message" id = "message" required></textarea>
                 <span class="focus"></span>
 
                 <span class = "animate scroll" style = "--i:7;"></span>
@@ -356,8 +356,10 @@
             </div>
         </footer>
 
-
-       <script src = "js/script.js"></script>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+        <script src = "js/script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      
     </body>
     
 </html>
