@@ -78,12 +78,14 @@ function sendEmail()
                 icon: "success"
               });
         }
-          else{
-               Swal.fire({
+        else
+        {
+            Swal.fire({
                 title: "Whoops!",
                 text: "Unfortunately there are some network issues on our side please try again later",
                 icon: "success"
               });
+        }
       }
     );
 }
